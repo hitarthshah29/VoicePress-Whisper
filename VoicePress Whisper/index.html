@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VoicePress Whisper</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="top-header">
+        <div class="header-title">
+            <h1>Dictated Daily</h1>
+            <span class="edition">Campus Edition</span>
+        </div>
+        <div class="header-actions">
+            <button id="btn-new">New Report</button>
+            <button id="btn-save">Save Report</button>
+            <button id="btn-saved">Saved Reports</button>
+            <button id="btn-print">Print</button>
+        </div>
+    </header>
+
+    <div id="whisper-status" class="status-bar">
+        WhisperFlow input ready
+    </div>
+    <div class="report-status-bar" id="report-status-bar">
+        Status: <strong id="status-indicator">Draft</strong> <span class="sep">|</span> Last Saved: <span id="last-saved-time">Never</span>
+    </div>
+
+    <main class="container">
+        <section class="editor-section">
+            <h2>Editor</h2>
+            <form id="editor-form">
+                <div class="form-group">
+                    <label for="paper-name">Paper Name</label>
+                    <input type="text" id="paper-name" value="Dictated Daily">
+                </div>
+                <div class="form-group">
+                    <label for="tagline">Tagline</label>
+                    <input type="text" id="tagline" value="News, Spoken Aloud">
+                </div>
+                <div class="form-group">
+                    <label for="edition">Edition</label>
+                    <input type="text" id="edition" value="">
+                </div>
+                <div class="form-group">
+                    <label for="headline">Headline</label>
+                    <input type="text" id="headline" value="">
+                </div>
+                <div class="form-group">
+                    <label for="subheadline">Subheadline</label>
+                    <input type="text" id="subheadline" value="">
+                </div>
+                <div class="form-group">
+                    <label for="reporter">Reporter</label>
+                    <input type="text" id="reporter" value="">
+                </div>
+                <div class="form-group">
+                    <label for="category">Category</label>
+                    <input type="text" id="category" value="Campus">
+                </div>
+                <div class="form-group">
+                    <label for="source">Source</label>
+                    <input type="text" id="source" value="">
+                </div>
+                <div class="form-group">
+                    <label for="source-type">Source Type</label>
+                    <input type="text" id="source-type" value="I witnessed it">
+                </div>
+                <div class="form-group">
+                    <label for="report-date">Report Date</label>
+                    <input type="date" id="report-date" value="">
+                </div>
+                <div class="form-group full-width">
+                    <label for="story">Story</label>
+                    <textarea id="story" rows="15"></textarea>
+                </div>
+            </form>
+        </section>
+
+        <section class="preview-section">
+            <h2>Live Newspaper Preview</h2>
+            <div id="newspaper-preview" class="newspaper">
+                <div class="newspaper-header">
+                    <h1 id="preview-paper-name">Dictated Daily</h1>
+                    <div class="newspaper-meta">
+                        <span id="preview-tagline">News, Spoken Aloud</span>
+                        <span id="preview-edition"></span>
+                    </div>
+                </div>
+                <div class="newspaper-details border-top-bottom">
+                    <span><strong>Date:</strong> <span id="preview-date"></span></span>
+                    <span><strong>Category:</strong> <span id="preview-category">Campus</span></span>
+                    <span><strong>Report ID:</strong> <span id="preview-report-id"></span></span>
+                </div>
+                
+                <div class="newspaper-content">
+                    <h2 id="preview-headline" class="main-headline"></h2>
+                    <h3 id="preview-subheadline" class="sub-headline"></h3>
+                    
+                    <div class="byline">
+                        <span>By <strong id="preview-reporter"></strong></span>
+                    </div>
+                    
+                    <div class="source-info">
+                        <span><strong>Source:</strong> <span id="preview-source"></span></span> | 
+                        <span><strong>Type:</strong> <span id="preview-source-type">I witnessed it</span></span>
+                    </div>
+
+                    <div id="preview-story" class="story-content"></div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div id="saved-reports-modal" class="modal hidden">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Saved Reports</h2>
+                <button id="btn-close-modal" class="close-btn">&times;</button>
+            </div>
+            <div class="modal-body" id="saved-reports-list">
+                <!-- Reports will be injected here -->
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
